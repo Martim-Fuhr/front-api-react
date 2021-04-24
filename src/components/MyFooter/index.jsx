@@ -15,7 +15,7 @@ export default function Footer() {
 	return (
 	<div >
 		<Typography className={classes.root} variant="body2" color="textSecondary" component="p">
-			Copyright © Martim Fuhr
+			Copyright © Martim Fuhr 
 		</Typography>
 	</div>
 	);

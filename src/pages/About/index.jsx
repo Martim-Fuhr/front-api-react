@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-no-target-blank */
 import MyHeader from '../../components/MyHeader';
+import MyFooter from '../../components/MyFooter';
 import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -48,23 +49,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-    return ['Apresentação', 'Objetivos', 'Informações Pessoais'];
+    return ['Apresentação', 'Objetivos', 'O que almejo?'];
   }
-const textoEmail = `Email: martimfuhr@hotmail.com <br/>`;
-const textoPhone = "Número: 51 995987124";
-const textoCity = "Centenário, Sapiranga-RS";
-const textoOld = "11/03/1998";
 
 
 function getStepContent(step) {
     switch (step) {
       case 0:
-        return `Olá! Meu nome é Martim Rafael Führ, tenho 23 anos e moro na cidade de Sapiranga-RS.`;
+        return `Me chamo Martim Rafael Führ, tenho 23 anos e moro na cidade de Sapiranga-RS.`;
       case 1:
         return `Atualmente estou em busca da minha primeira oportunidade na área do Desenvolvimento Web,
         onde eu possa me desenvolver e destacar como profissional, sempre em busca de novos desafios.`;
       case 2:
-          return `${textoEmail} ${textoPhone}`;
+          return `Pretendo começar o curso superior de ADS o mais rápido possível, e em parelelo com isso, estar em uma empresa onde eu possa me dedicar e ser recompensado com muita experiência, onde meu sonho de evoluir como profissional anda lado a lado com o objetivo da empresa de ter um bom profissional.`;
       default:
         return 'Unknown Infos';
     }
@@ -105,6 +102,12 @@ export default function About() {
                                 image={Photop}
                                 title="Martim Fuhr"/>
                         </CardActionArea>
+                        <Typography variant="body2" color="textSecondary" component="p">
+
+							Email: martimfuhr@hotmail.com <br/>
+                            Celular: 51 995987124 <br/>
+                            Data de Nascimento: 11/03/1998 <br/>
+						</Typography>
                         <a href="https://github.com/Martim-Fuhr" target="_blank"><GitHubIcon/><i class="fab fa-github"></i></a>
                         <a href="https://cutt.ly/Whm6X0k" target="_blank"><LinkedInIcon/><i class="fab fa-linkedin"></i></a>
                     </Card>
@@ -153,7 +156,7 @@ export default function About() {
     </div>
             </Grid>
         </Grid>
-        
+        <MyFooter/>
     </React.Fragment>
   );
 }

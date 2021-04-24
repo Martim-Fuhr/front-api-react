@@ -12,14 +12,15 @@ import HtmlCss from '../../images/htmlcss.png';
 import JsImg from '../../images/jsimg.png';
 import NodeImg from '../../images/nodejs.png';
 import ReactImg from '../../images/reactjsx.png';
-import PostImg from '../../images/posts.png'
+import PostImg from '../../images/posts.png';
 
 const useStyles = makeStyles((theme) => ({
 	root1: {
 	  flexGrow: 1,
 	  justifyContent: 'center',
 	  alignItems: 'center',
-	  display: 'flex'
+	  display: 'flex',
+	  backgroundColor: '#cfe8fc'
 	},
 	root2: {
 		maxWidth: 345,
@@ -147,7 +148,6 @@ export default function Aboutjobs() {
 						</CardActionArea>
 					</Card>
 				</Grid>
-
 			</Grid>
 		</div>
 	);

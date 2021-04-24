@@ -15,6 +15,7 @@ import MarvelOne from '../../images/marvel.png';
 const useStyles = makeStyles((theme) => ({
 	root1: {
 	  flexGrow: 1,
+	  backgroundColor: '#cfe8fc'
 	},
 	root2: {
 		maxWidth: 345,

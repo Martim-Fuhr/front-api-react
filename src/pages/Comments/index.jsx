@@ -11,13 +11,14 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       margin: theme.spacing(1),
-      alignItems: 'center'
+      alignItems: 'center',
     },
   },
   stylebox: {
     justifyContent: 'center',
     display: 'flex',
-    textAlign: 'center'
+    textAlign: 'center',
+    backgroundColor: '#cfe8fc'
   }
 }));
 

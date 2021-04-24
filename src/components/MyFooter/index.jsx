@@ -2,12 +2,12 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
 	root: {
 	  justifyContent: 'center',
 	  alignItems: 'center',
 	  display: 'flex',
-	  fixed: 'marginBottom'
+	  bottom: '0'
 	},
 }));
 export default function Footer() {
@@ -15,7 +15,7 @@ export default function Footer() {
 	return (
 	<div >
 		<Typography className={classes.root} variant="body2" color="textSecondary" component="p">
-			Copyright © Martim Fuhr 
+			Copyright © Martim Fuhr
 		</Typography>
 	</div>
 	);

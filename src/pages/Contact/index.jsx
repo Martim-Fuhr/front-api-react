@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
   stylebox: {
     justifyContent: 'center',
     display: 'flex',
-    textAlign: 'center'
+    textAlign: 'center',
+    backgroundColor: '#cfe8fc'
   }
 }));
 
@@ -60,7 +61,7 @@ export default function Contact() {
             <TextField id="phone" label="Telefone" type="number" variant="outlined" onChange={e => setPhone(e.target.value)} error={invalidData} /> <br/>
             <TextField id="comment" label="Mensagem" multiline rows={3} variant="outlined" onChange={e => setComment(e.target.value)} error={invalidData}/> <br/>
             <Button style={{ width: '8%'}} variant="contained">Limpar</Button>
-            <Button style={{ width: '8%'}} variant="contained" color="primary" onClick={onSave}>Enviar</Button>
+            <Button style={{ width: '8%'}} variant="contained" backgroundColor="#1976d2" color="primary" onClick={onSave}>Enviar</Button>
             {
               saved 
                     ?   <Box p={2} bgcolor="green" color="primary.contrastText">

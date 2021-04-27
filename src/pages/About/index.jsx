@@ -23,12 +23,12 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme) => ({
 	root1: {
 	  height: '85vh',
-      borderColor: 'black',
+    borderColor: 'black',
 	  justifyContent: 'center',
 	  alignItems: 'center',
 	  display: 'flex',
-      backgroundColor: '#cfe8fc',
-      marginTop: '15px'
+    backgroundColor: '#cfe8fc',
+    marginTop: '15px'
 	},
     paper: {
         textAlign: 'center',

@@ -7,6 +7,7 @@ import { useState } from 'react';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import api from '../../services/api';
+import MyFooter from '../../components/MyFooter';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Contact() {
+export default () => {
   document.title = 'Contato - Currículo Martim Rafael Fuhr'
 
   const classes = useStyles();
@@ -31,8 +32,9 @@ export default function Contact() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [comment, setComment] = useState('');
-  const [invalidData, setInvalidData] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [invalidData, setInvalidData] = useState(false);
+  
 
   async function onSave(event) {
     event.preventDefault();
@@ -52,6 +54,17 @@ export default function Contact() {
     }
   }
 
+  function onDel(event) {
+    event.preventDefault();
+
+    setInvalidData(false);
+    
+      setName('');
+      setEmail('');
+      setPhone('');
+      setComment('');
+    }
+
 
 
   return (
@@ -60,22 +73,33 @@ export default function Contact() {
         <MyHeader/>
           <h1 style={{ marginTop: '30px'}}>Deseja contatar-me?</h1>
           <h2>Preencha os campos abaixo que logo retornarei!</h2>
-          <form className={classes.root} noValidate autoComplete="off">
-            <TextField id="name" 
+          <form className={classes.root} autoComplete="off">
+          {
+              saved 
+              ?
+                <Box p={2} bgcolor="green" color="primary.contrastText">
+                  Enviado com sucesso
+                </Box>
+                : ''
+            }
+            <TextField
+            id="name" 
             label="Nome" 
             value={name}
             variant="outlined" 
             onChange={e => setName(e.target.value)} 
             error={invalidData} /><br/>
 
-            <TextField id="email"
+            <TextField
+            id="email"
             label="Email"
             value={email}
             variant="outlined"
             onChange={e => setEmail(e.target.value)}
             error={invalidData} /> <br/>
 
-            <TextField id="phone"
+            <TextField
+            id="phone"
             label="Telefone"
             type="number"
             value={phone}
@@ -90,17 +114,19 @@ export default function Contact() {
             onChange={e => setComment(e.target.value)}
             error={invalidData}/> <br/>
 
-            <Button style={{ width: '8%'}} variant="contained">Limpar</Button>
-            <Button style={{ width: '8%'}} variant="contained" backgroundColor="#1976d2" color="primary" onClick={onSave}>Enviar</Button>
-            {
-              saved 
-                    ?   <Box p={2} bgcolor="green" color="primary.contrastText">
-                            Enviado com sucesso
-                        </Box>
-                      : ''
-                      }
+            <Button style={{ width: '8%'}}
+            variant="contained"
+            onClick={onDel}>Limpar</Button>
+            
+            <Button style={{ width: '8%'}}
+            variant="contained"
+            backgroundColor="#1976d2"
+            color="primary"
+            onClick={onSave}>Enviar</Button>
+
           </form>
       </div>
+      <MyFooter/>
     </Grid>
     
   );

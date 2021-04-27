@@ -2,7 +2,7 @@ import axios from 'axios';
 
 class Api {
   constructor() {
-    this.baseURL = 'https://portfolio-martim-fuhr.herokuapp.com/'
+    this.baseURL = 'https://portfolio-martim-fuhr.herokuapp.com'
   }
 
   async sendContact(name, email, phone, comment) {

@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
+import MyFooter from '../../components/MyFooter'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   stylebox: {
+    height: '96vh',
     justifyContent: 'center',
     display: 'flex',
     textAlign: 'center',
@@ -41,30 +43,63 @@ export default function Comments() {
       setComment('');
       setSaved(true);
       }
-  
   }
 
+  function onDel(event) {
+    event.preventDefault();
+    setInvalidData(false);
+    
+      setName('');
+      setComment('');
+    }
 
   return (
-    <Grid item xs={12} className={classes.stylebox}>
-      <div>
-        <MyHeader/>
-          <h1 style={{ marginTop: '30px'}}>E aí, o que achou da página?</h1>
-          <h2>Se quiser, deixe uma mensagem!</h2>
-          <form className={classes.root} noValidate autoComplete="off">
-            <TextField id="name" label="Nome" variant="outlined" onChange={e => setName(e.target.value)} error={invalidData} /> <br/>
-            <TextField id="comment" label="Mensagem" multiline rows={3} variant="outlined" onChange={e => setComment(e.target.value)} error={invalidData}/> <br/>
-            <Button style={{ width: '8%'}} variant="contained">Limpar</Button>
-            <Button style={{ width: '8%'}} variant="contained" color="primary" onClick={onSave}>Enviar</Button>
-            {
-              saved 
-                ?   <Box p={2} bgcolor="green" color="primary.contrastText">
-                      Salvo com sucesso
-                    </Box>
+    <div>
+      <Grid item xs={12} className={classes.stylebox}>
+        <div>
+          <MyHeader/>
+            <h1 style={{ marginTop: '30px'}}>E aí, o que achou da página?</h1>
+            <h2>Se quiser, deixe uma mensagem!</h2>
+            <form className={classes.root} noValidate autoComplete="off">
+
+              <TextField
+              id="name"
+              label="Nome"
+              variant="outlined"
+              onChange={e => setName(e.target.value)}
+              error={invalidData} /> <br/>
+
+              <TextField id="comment"
+              label="Mensagem"
+              multiline rows={3}
+              variant="outlined"
+              onChange={e => setComment(e.target.value)}
+              error={invalidData}/> <br/>
+
+              <Button style={{ width: '8%'}}
+              variant="contained"
+              onClick={onDel}>
+                Limpar
+              </Button>
+
+              <Button style={{ width: '8%'}}
+              variant="contained"
+              color="primary"
+              onClick={onSave}>
+                Enviar
+              </Button>
+              {
+                saved 
+                  ?
+                  <Box p={2} bgcolor="green" color="primary.contrastText">
+                    Salvo
+                  </Box>
                   : ''
-                      }
-          </form>
-      </div>
-    </Grid>
+                        }
+            </form>
+        </div>
+      </Grid>
+      <MyFooter/>
+    </div>
   );
 }
